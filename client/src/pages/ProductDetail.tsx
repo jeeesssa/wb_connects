@@ -74,7 +74,7 @@ export default function ProductDetail() {
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
                 <span className="text-white font-bold">📚</span>
               </div>
-              <h1 className="text-xl font-bold text-foreground">Digital Products Hub</h1>
+              <h1 className="text-xl font-bold text-foreground">WB Connect</h1>
             </a>
           </Link>
         </div>
@@ -302,7 +302,7 @@ export default function ProductDetail() {
       {/* Footer */}
       <footer className="border-t border-border mt-20 py-12">
         <div className="container text-center text-foreground/60 text-sm">
-          <p>&copy; 2026 Digital Products Hub. All rights reserved.</p>
+          <p>&copy; 2026 WB Connect. All rights reserved.</p>
         </div>
       </footer>
     </div>

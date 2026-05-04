@@ -94,7 +94,7 @@ export default function Home() {
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-xl font-bold text-foreground">Digital Products Hub</h1>
+            <h1 className="text-xl font-bold text-foreground">WB Connect</h1>
           </div>
           <a
             href="https://github.com/jeeesssa"
@@ -316,7 +316,7 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h4 className="font-bold text-foreground mb-4">Digital Products Hub</h4>
+              <h4 className="font-bold text-foreground mb-4">WB Connect</h4>
               <p className="text-foreground/60 text-sm">
                 Your destination for quality digital products and learning materials.
               </p>
@@ -361,7 +361,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-border pt-8 text-center text-foreground/60 text-sm">
-            <p>&copy; 2026 Digital Products Hub. All rights reserved.</p>
+            <p>&copy; 2026 WB Connect. All rights reserved.</p>
           </div>
         </div>
       </footer>
