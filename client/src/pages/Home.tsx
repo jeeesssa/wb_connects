@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Github, BookOpen, FileText, Lightbulb, Users } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
 
 interface GitHubRepo {
   name: string;
@@ -121,12 +122,16 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex gap-4 pt-4">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
-                >
-                  Browse Products
-                </Button>
+                <Link href="/products">
+                  <a>
+                    <Button
+                      size="lg"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
+                    >
+                      Browse Products
+                    </Button>
+                  </a>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"
@@ -186,12 +191,16 @@ export default function Home() {
                     <p className="text-foreground/70 mb-6 leading-relaxed">
                       {product.description}
                     </p>
-                    <Button
-                      variant="ghost"
-                      className="text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-semibold"
-                    >
-                      Explore →
-                    </Button>
+                    <Link href="/products">
+                      <a>
+                        <Button
+                          variant="ghost"
+                          className="text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-semibold"
+                        >
+                          Explore →
+                        </Button>
+                      </a>
+                    </Link>
                   </div>
                 </Card>
               );
@@ -280,12 +289,16 @@ export default function Home() {
               Browse our complete collection of digital products and find exactly what you need.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
-              >
-                Start Browsing
-              </Button>
+              <Link href="/products">
+                <a>
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
+                  >
+                    Start Browsing
+                  </Button>
+                </a>
+              </Link>
               <Button
                 size="lg"
                 variant="outline"
@@ -312,17 +325,19 @@ export default function Home() {
               <h4 className="font-bold text-foreground mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
-                    Products
-                  </a>
+                  <Link href="/products">
+                    <a className="hover:text-primary transition-colors">
+                      Products
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <a className="hover:text-primary transition-colors cursor-pointer">
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-primary transition-colors">
+                  <a className="hover:text-primary transition-colors cursor-pointer">
                     Contact
                   </a>
                 </li>
