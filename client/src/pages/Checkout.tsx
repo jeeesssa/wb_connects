@@ -120,7 +120,7 @@ export default function Checkout() {
                         </p>
                       </div>
                       <p className="font-semibold text-foreground">
-                        ${(item.price * item.quantity).toFixed(2)}
+                         ₱{(item.price * item.quantity).toFixed(2)}
                       </p>
                     </div>
                   ))}
