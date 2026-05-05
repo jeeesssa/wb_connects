@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import logo from "@/assets/logo.png";
 
 /**
  * Design Philosophy: Modern Minimalist with Warm Accents
@@ -57,30 +58,45 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="container flex items-center justify-between h-16">
-          <Link href="/">
-            <a className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-                <span className="text-white font-bold">📚</span>
-              </div>
-              <h1 className="text-xl font-bold text-foreground">WB Connect</h1>
-            </a>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link href="/products">
-              <span className="text-foreground/70 hover:text-foreground transition-colors cursor-pointer">
-                Products
-              </span>
-            </Link>
-            <Link href="/contact">
-              <span className="text-foreground/70 hover:text-foreground transition-colors cursor-pointer">
-                Contact
-              </span>
-            </Link>
-          </div>
-        </div>
-      </nav>
+<nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+  <div className="container flex items-center justify-between h-16">
+
+    {/* LOGO */}
+    <Link href="/">
+      <a className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+
+        <img
+          src={logo} // or "/logo.png" if using public folder
+          alt="WB Connect Logo"
+          className="w-10 h-10 object-contain rounded-md"
+        />
+
+        <h1 className="text-xl font-bold text-foreground">
+          WB Connect
+        </h1>
+
+      </a>
+    </Link>
+
+    {/* MENU */}
+    <div className="flex items-center gap-6">
+
+      <Link href="/products">
+        <span className="text-foreground/70 hover:text-foreground transition-colors cursor-pointer font-medium">
+          Products
+        </span>
+      </Link>
+
+      <Link href="/contact">
+        <span className="text-foreground/70 hover:text-foreground transition-colors cursor-pointer font-medium">
+          Contact
+        </span>
+      </Link>
+
+    </div>
+
+  </div>
+</nav>
 
       {/* Hero Section */}
       <section className="py-16 md:py-24">
