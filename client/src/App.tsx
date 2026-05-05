@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import Contact from "./pages/Contact";
 
 
 function Router() {
@@ -15,6 +16,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/products"} component={Products} />
       <Route path={"/product/:id"} component={ProductDetail} />
+      <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -32,6 +34,7 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider
         defaultTheme="light"
+        // switchable
       >
         <TooltipProvider>
           <Toaster />
