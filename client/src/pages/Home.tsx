@@ -4,6 +4,7 @@ import { Github, BookOpen, FileText, Lightbulb, Users } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import logo from "@/assets/logo.png";
+import home from "@/assets/home.png";
 
 interface GitHubRepo {
   name: string;
@@ -152,8 +153,8 @@ export default function Home() {
             {/* Right Image */}
             <div className="relative h-96 md:h-full">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663625524357/BxVk3XguSyUFwsNTtq5qot/hero-books-learning-PfwoDE3N8AjdR8axiuT4Y4.webp"
-                alt="Digital products showcase"
+                src={home} // or "/logo.png" if using public folder
+                 alt="WB Connect Hero"
                 className="w-full h-full object-cover rounded-2xl shadow-lg"
               />
               {/* Decorative accent line */}
