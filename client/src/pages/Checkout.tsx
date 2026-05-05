@@ -129,15 +129,15 @@ export default function Checkout() {
                 <div className="space-y-3 pt-6 border-t border-border/30">
                   <div className="flex justify-between text-foreground/70">
                     <span>Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                    <span>₱{subtotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-foreground/70">
                     <span>Tax (12% VAT)</span>
-                    <span>${tax.toFixed(2)}</span>
+                    <span>₱{tax.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-lg font-bold text-foreground pt-3 border-t border-border/30">
                     <span>Total</span>
-                    <span className="text-primary">${total.toFixed(2)}</span>
+                    <span className="text-primary">₱{total.toFixed(2)}</span>
                   </div>
                 </div>
               </Card>
@@ -309,7 +309,7 @@ export default function Checkout() {
                     ) : (
                       <>
                         <Check className="w-4 h-4" />
-                        Complete Purchase - ${total.toFixed(2)}
+                        Complete Purchase -   ₱{total.toFixed(2)}
                       </>
                     )}
                   </Button>
@@ -333,19 +333,19 @@ export default function Checkout() {
                   <div className="flex justify-between">
                     <span className="text-foreground/70">Subtotal</span>
                     <span className="font-semibold text-foreground">
-                      ${subtotal.toFixed(2)}
+                      ₱{subtotal.toFixed(2)}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-foreground/70">Tax</span>
                     <span className="font-semibold text-foreground">
-                      ${tax.toFixed(2)}
+                      ₱{tax.toFixed(2)}
                     </span>
                   </div>
                   <div className="border-t border-border/30 pt-3 flex justify-between">
                     <span className="font-bold text-foreground">Total</span>
                     <span className="font-bold text-primary text-lg">
-                      ${total.toFixed(2)}
+                      ₱{total.toFixed(2)}
                     </span>
                   </div>
                 </div>
