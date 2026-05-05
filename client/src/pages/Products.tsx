@@ -232,7 +232,7 @@ export default function Products() {
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {filteredProducts.map((product) => (
-                      <Link key={product.id} href={`/product/₱{product.id}`}>
+                      <Link key={product.id} href={`/product/${product.id}`}>
                         <a>
                           <Card className="h-full overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/30 rounded-2xl group cursor-pointer">
                             {/* Product Image */}
