@@ -165,47 +165,56 @@ export default function Home() {
         </div>
       </section>
 
-     {/* Product Categories */}
-<section className="py-16 md:py-20">
-  <div className="container">
+      {/* Product Categories */}
+      <section className="py-20 md:py-32 bg-gradient-to-b from-transparent to-muted/30">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Our Product Categories
+            </h2>
+            <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
+              Everything you need to learn, create, and grow
+            </p>
+          </div>
 
-    {/* Header */}
-    <div className="text-center mb-10">
-      <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-2">
-        Product Categories
-      </h2>
-      <p className="text-sm text-foreground/60">
-        Simple tools to help you learn and grow
-      </p>
-    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {products.map((product) => {
+              const Icon = product.icon;
+              return (
+                <Card
+                  key={product.id}
+                  className="group p-8 hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/30 rounded-2xl overflow-hidden"
+                >
+                  {/* Background gradient */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10`}
+                  />
 
-    {/* Grid */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {products.map((product) => {
-        const Icon = product.icon;
-
-        return (
-          <Link key={product.id} href="/products">
-            <div className="p-4 border border-border rounded-xl hover:border-primary hover:shadow-sm transition-all cursor-pointer">
-
-              {/* Icon */}
-              <div className="w-10 h-10 flex items-center justify-center rounded-md bg-muted mb-3">
-                <Icon className="w-5 h-5 text-primary" />
-              </div>
-
-              {/* Title */}
-              <h3 className="text-sm font-semibold text-foreground">
-                {product.title}
-              </h3>
-
-            </div>
-          </Link>
-        );
-      })}
-    </div>
-
-  </div>
-</section>
+                  <div className="relative z-10">
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${product.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                      <Icon className={`w-7 h-7 ${product.accentColor}`} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground mb-3">
+                      {product.title}
+                    </h3>
+                    <p className="text-foreground/70 mb-6 leading-relaxed">
+                      {product.description}
+                    </p>
+                    <Link href="/products">
+                      <Button
+                        variant="ghost"
+                        className="text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-semibold"
+                      >
+                        Explore →
+                      </Button>
+                    </Link>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
           {/* CTA Section */}
       <section className="py-20 md:py-32 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl mx-4 md:mx-0">
