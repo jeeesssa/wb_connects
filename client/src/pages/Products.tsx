@@ -183,7 +183,7 @@ export default function Products() {
                       />
                     </div>
                     <div className="text-sm text-foreground/60">
-                      ${priceRange[0]} - ${priceRange[1]}
+                      {priceRange[0]} - {priceRange[1]}
                     </div>
                   </div>
                 </div>
@@ -275,6 +275,7 @@ export default function Products() {
                                         i < Math.floor(product.rating)
                                           ? "fill-amber-400 text-amber-400"
                                           : "text-foreground/20"
+
                                       }`}
                                     />
                                   ))}
