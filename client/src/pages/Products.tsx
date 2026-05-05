@@ -183,7 +183,7 @@ export default function Products() {
                       />
                     </div>
                     <div className="text-sm text-foreground/60">
-                      {priceRange[0]} - {priceRange[1]}
+                      P{priceRange[0]} - P{priceRange[1]}
                     </div>
                   </div>
                 </div>
