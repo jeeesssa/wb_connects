@@ -355,10 +355,7 @@ export default function Checkout() {
                     <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                     <div className="text-sm">
                       <p className="font-semibold text-green-900">
-                        30-Day Money Back Guarantee
-                      </p>
-                      <p className="text-green-800 text-xs mt-1">
-                        Not satisfied? Get a full refund within 30 days.
+                        No Refund Allowed.
                       </p>
                     </div>
                   </div>
