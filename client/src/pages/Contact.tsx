@@ -110,8 +110,8 @@ export default function Contact() {
                   <div>
                     <h3 className="font-bold text-foreground mb-2">Email</h3>
                     <p className="text-foreground/60 text-sm">
-                      <a href="mailto:contact@wbconnect.com" className="hover:text-primary transition-colors">
-                        contact@wbconnect.com
+                      <a href="mailto:wbconnect.official@gmail.com" className="hover:text-primary transition-colors">
+                        wbconnect.official@gmail.com
                       </a>
                     </p>
                   </div>
@@ -126,8 +126,8 @@ export default function Contact() {
                   <div>
                     <h3 className="font-bold text-foreground mb-2">Phone</h3>
                     <p className="text-foreground/60 text-sm">
-                      <a href="tel:+1234567890" className="hover:text-primary transition-colors">
-                        +1 (234) 567-890
+                      <a href="tel:+63 909 448 4370" className="hover:text-primary transition-colors">
+                        +63 909 448 4370
                       </a>
                     </p>
                   </div>
@@ -142,8 +142,8 @@ export default function Contact() {
                   <div>
                     <h3 className="font-bold text-foreground mb-2">Location</h3>
                     <p className="text-foreground/60 text-sm">
-                      123 Creative Street<br />
-                      Digital City, DC 12345
+                      The Bloomfield Enclave<br />
+                      Magalang, Pampanga, Philippines
                     </p>
                   </div>
                 </div>
