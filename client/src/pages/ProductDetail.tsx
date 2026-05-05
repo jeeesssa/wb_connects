@@ -149,7 +149,7 @@ export default function ProductDetail() {
                   <p className="text-sm text-foreground/60 mb-2">Price</p>
                   <div className="flex items-baseline gap-4">
                     <span className="text-5xl font-bold text-primary">
-                      ${product.price}
+                      ₱ {product.price}
                     </span>
                     <span className="text-lg text-foreground/60">One-time purchase</span>
                   </div>
@@ -241,7 +241,7 @@ export default function ProductDetail() {
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                           />
                           <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-2 py-1 rounded-lg text-xs font-semibold">
-                            ${related.price}
+                            ₱ {related.price}
                           </div>
                         </div>
                         <div className="p-4">
