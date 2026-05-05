@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Github, BookOpen, FileText, Lightbulb, Users } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
+import logo from "@/assets/logo.png";
 
 interface GitHubRepo {
   name: string;
@@ -88,25 +89,33 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="container flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-xl font-bold text-foreground">WB Connect</h1>
-          </div>
-          <a
-            href="https://github.com/jeeesssa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 hover:bg-muted rounded-lg transition-colors"
-          >
-            <Github className="w-5 h-5 text-foreground" />
-          </a>
-        </div>
-      </nav>
+<nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+  <div className="container flex items-center justify-between h-16">
 
+    {/* LOGO */}
+    <div className="flex items-center gap-2">
+      <img
+        src={logo} // or "/logo.png" if using public folder
+        alt="WB Connect Logo"
+        className="w-10 h-10 object-contain rounded-md"
+      />
+      <h1 className="text-xl font-bold text-foreground">
+        WB Connect
+      </h1>
+    </div>
+
+    {/* GitHub */}
+    <a
+      href="https://github.com/jeeesssa"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2 hover:bg-muted rounded-lg transition-colors"
+    >
+      <Github className="w-5 h-5 text-foreground" />
+    </a>
+
+  </div>
+</nav>
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="container py-20 md:py-32">
