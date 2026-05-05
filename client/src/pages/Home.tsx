@@ -115,10 +115,10 @@ export default function Home() {
             <div className="space-y-6">
               <div className="space-y-4">
                 <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
-                  Discover Quality Digital Products
+                  Build, Learn, and Grow with WB Connect
                 </h2>
                 <p className="text-lg text-foreground/70 leading-relaxed">
-                  Explore our curated collection of e-books, templates, and learning materials designed to inspire and educate.
+                 Discover quality digital products including e-books, templates, and learning materials designed to support your journey in business, creativity, and education.
                 </p>
               </div>
               <div className="flex gap-4 pt-4">
@@ -205,76 +205,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GitHub Projects Section */}
-      <section className="py-20 md:py-32">
-        <div className="container">
-          <div className="mb-16">
-            <div className="flex items-center gap-3 mb-4">
-              <Github className="w-8 h-8 text-primary" />
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                GitHub Projects
-              </h2>
-            </div>
-            <p className="text-lg text-foreground/60 max-w-2xl">
-              Check out my open-source projects and contributions on GitHub
-            </p>
-          </div>
-
-          {loading ? (
-            <div className="flex items-center justify-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
-            </div>
-          ) : repos.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {repos.map((repo) => (
-                <a
-                  key={repo.name}
-                  href={repo.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group"
-                >
-                  <Card className="h-full p-8 hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/50 rounded-2xl hover:bg-muted/30 cursor-pointer">
-                    <div className="flex items-start justify-between mb-4">
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                        {repo.name}
-                      </h3>
-                      <Github className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-
-                    {repo.description && (
-                      <p className="text-foreground/70 mb-4 line-clamp-2">
-                        {repo.description}
-                      </p>
-                    )}
-
-                    <div className="flex items-center gap-4 text-sm text-foreground/60">
-                      {repo.language && (
-                        <div className="flex items-center gap-2">
-                          <div className="w-3 h-3 rounded-full bg-primary" />
-                          {repo.language}
-                        </div>
-                      )}
-                      {repo.stars > 0 && (
-                        <div className="flex items-center gap-1">
-                          <span>⭐</span>
-                          {repo.stars}
-                        </div>
-                      )}
-                    </div>
-                  </Card>
-                </a>
-              ))}
-            </div>
-          ) : (
-            <Card className="p-12 text-center border-border/50 rounded-2xl">
-              <p className="text-foreground/60">No public repositories found</p>
-            </Card>
-          )}
-        </div>
-      </section>
-
-      {/* CTA Section */}
+          {/* CTA Section */}
       <section className="py-20 md:py-32 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl mx-4 md:mx-0">
         <div className="container">
           <div className="text-center space-y-6">
