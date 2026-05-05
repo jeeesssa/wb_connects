@@ -156,21 +156,23 @@ export default function ProductDetail() {
                 </div>
 
                 <div className="flex gap-4">
-                  <Button
-                    size="lg"
-                    className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg flex items-center justify-center gap-2"
-                    onClick={() => setShowDownloadModal(true)}
-                  >
-                    <Download className="w-5 h-5" />
-                    Download Now
-                  </Button>
+                  <Link href="/checkout">
+                    <Button
+                      size="lg"
+                      className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg flex items-center justify-center gap-2"
+                    >
+                      <ShoppingCart className="w-5 h-5" />
+                      Buy Now
+                    </Button>
+                  </Link>
                   <Button
                     size="lg"
                     variant="outline"
                     className="flex-1 rounded-lg border-primary text-primary hover:bg-primary/5 flex items-center justify-center gap-2"
+                    onClick={() => setShowDownloadModal(true)}
                   >
-                    <ShoppingCart className="w-5 h-5" />
-                    Add to Cart
+                    <Download className="w-5 h-5" />
+                    Learn More
                   </Button>
                 </div>
               </div>
