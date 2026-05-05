@@ -123,14 +123,12 @@ export default function Home() {
               </div>
               <div className="flex gap-4 pt-4">
                 <Link href="/products">
-                  <a>
-                    <Button
-                      size="lg"
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
-                    >
-                      Browse Products
-                    </Button>
-                  </a>
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
+                  >
+                    Browse Products
+                  </Button>
                 </Link>
                 <Button
                   size="lg"
@@ -192,14 +190,12 @@ export default function Home() {
                       {product.description}
                     </p>
                     <Link href="/products">
-                      <a>
-                        <Button
-                          variant="ghost"
-                          className="text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-semibold"
-                        >
-                          Explore →
-                        </Button>
-                      </a>
+                      <Button
+                        variant="ghost"
+                        className="text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-semibold"
+                      >
+                        Explore →
+                      </Button>
                     </Link>
                   </div>
                 </Card>
@@ -290,14 +286,12 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link href="/products">
-                <a>
-                  <Button
-                    size="lg"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
-                  >
-                    Start Browsing
-                  </Button>
-                </a>
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
+                >
+                  Start Browsing
+                </Button>
               </Link>
               <Button
                 size="lg"
@@ -326,9 +320,9 @@ export default function Home() {
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li>
                   <Link href="/products">
-                    <a className="hover:text-primary transition-colors">
+                    <span className="hover:text-primary transition-colors cursor-pointer">
                       Products
-                    </a>
+                    </span>
                   </Link>
                 </li>
                 <li>
