@@ -2,6 +2,7 @@
  * Product catalog data
  * Design Philosophy: Modern Minimalist with Warm Accents
  */
+import kidsnum from "@/assets/kidsnum.png";
 
 export interface Product {
   id: string;
@@ -178,20 +179,20 @@ export const products: Product[] = [
     releaseDate: "2025-01-05",
   },
   {
-    id: "kids-2",
-    title: "Math Mastery - Numbers 1-100 Workbook",
-    category: "kids-learning",
-    price: 11.99,
-    description: "Build strong math foundations",
-    longDescription:
-      "Progressive math workbook covering counting, number recognition, basic addition and subtraction. Colorful illustrations and fun activities.",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663625524357/BxVk3XguSyUFwsNTtq5qot/hero-books-learning-PfwoDE3N8AjdR8axiuT4Y4.webp",
-    features: [
-      "100+ practice problems",
-      "Progress tracking sheets",
-      "Answer key included",
-      "Bonus games",
-    ],
+     id: "kids-2",
+  title: "Math Mastery - Numbers 1-100 Workbook",
+  category: "kids-learning",
+  price: 11.99,
+  description: "Build strong math foundations",
+  longDescription:
+    "Progressive math workbook covering counting, number recognition, basic addition and subtraction. Colorful illustrations and fun activities.",
+  image: kidsnum, 
+  features: [
+    "100+ practice problems",
+    "Progress tracking sheets",
+    "Answer key included",
+    "Bonus games",
+  ],
     rating: 4.8,
     reviews: 267,
     fileSize: "22.4 MB",

@@ -6,6 +6,7 @@ import { Link } from "wouter";
 import logo from "@/assets/logo.png";
 import home from "@/assets/home.png";
 
+
 interface GitHubRepo {
   name: string;
   description: string | null;
