@@ -5,7 +5,7 @@ import { Star, Download, ShoppingCart, Search, X } from "lucide-react";
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import logo from "@/assets/logo.png";
-
+import kidsnum from "@/assets/kidsnum.png";
 /**
  * Design Philosophy: Modern Minimalist with Warm Accents
  * - Consistent with home page design
@@ -254,8 +254,8 @@ export default function Products() {
                             {/* Product Image */}
                             <div className="relative h-48 bg-gradient-to-br from-amber-100 to-orange-100 overflow-hidden">
                               <img
-                                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663625524357/BxVk3XguSyUFwsNTtq5qot/hero-books-learning-PfwoDE3N8AjdR8axiuT4Y4.webp"
-                                alt={product.title}
+                                src={kidsnum}
+                                  alt={product.title}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                               />
                               <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
