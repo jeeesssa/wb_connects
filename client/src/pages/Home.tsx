@@ -1,194 +1,364 @@
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Github, BookOpen, FileText, Lightbulb, Users } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 
+interface GitHubRepo {
+  name: string;
+  description: string | null;
+  url: string;
+  language: string | null;
+  stars: number;
+}
+
+/**
+ * Design Philosophy: Modern Minimalist with Warm Accents
+ * - Color Palette: Cream (#FAF8F3), Terracotta (#D97757), Soft Gold (#D4A574), Deep Charcoal (#2C2C2C)
+ * - Typography: Playfair Display (headlines), Lato (body)
+ * - Layout: Asymmetric, generous whitespace, soft rounded corners
+ * - Accents: Subtle gradients, soft shadows, decorative lines
+ */
+
 export default function Home() {
+  const [repos, setRepos] = useState<GitHubRepo[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch GitHub repositories
+    const fetchRepos = async () => {
+      try {
+        const response = await fetch("https://api.github.com/users/jeeesssa/repos");
+        const data = await response.json();
+        const ownRepos = data
+          .filter((repo: any) => !repo.fork)
+          .map((repo: any) => ({
+            name: repo.name,
+            description: repo.description,
+            url: repo.html_url,
+            language: repo.language,
+            stars: repo.stargazers_count,
+          }));
+        setRepos(ownRepos);
+      } catch (error) {
+        console.error("Error fetching repos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRepos();
+  }, []);
 
   const products = [
     {
+      id: 1,
       title: "E-Books",
-      description: "Digital books ready to download and read anywhere.",
+      description: "Digital books on various topics, ready to download and read on any device.",
       icon: BookOpen,
+      color: "from-amber-100 to-orange-100",
+      accentColor: "text-amber-700",
     },
     {
+      id: 2,
       title: "Templates",
-      description: "Ready-to-use documents, dashboards, and tools.",
+      description: "Ready-to-use templates for documents, presentations, and more.",
       icon: FileText,
+      color: "from-orange-100 to-red-100",
+      accentColor: "text-orange-700",
     },
     {
-      title: "Kids Learning",
-      description: "Fun, engaging educational materials for children.",
+      id: 3,
+      title: "Kids Learning Materials",
+      description: "Engaging educational content designed specifically for children.",
       icon: Lightbulb,
+      color: "from-yellow-100 to-amber-100",
+      accentColor: "text-yellow-700",
     },
     {
-      title: "Resources",
-      description: "Curated digital assets to boost productivity.",
+      id: 4,
+      title: "Other Resources",
+      description: "Curated collection of additional digital products and resources.",
       icon: Users,
+      color: "from-orange-50 to-yellow-50",
+      accentColor: "text-orange-600",
     },
   ];
 
   return (
-    <div className="bg-white text-[#093C5D]">
-
-      {/* NAV */}
-      <nav className="sticky top-0 z-50 bg-[#093C5D]/95 backdrop-blur border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <h1 className="text-white font-semibold text-lg">
-            WB<span className="text-[#FFC81E]">.</span>Connect
-          </h1>
-
-          <div className="flex items-center gap-6 text-sm text-white/70">
-            <a href="#">Products</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-
-            <a href="https://github.com/jeeesssa" target="_blank">
-              <Github className="w-5 h-5" />
-            </a>
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+        <div className="container flex items-center justify-between h-16">
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+              <BookOpen className="w-6 h-6 text-white" />
+            </div>
+            <h1 className="text-xl font-bold text-foreground">WB Connect</h1>
           </div>
+          <a
+            href="https://github.com/jeeesssa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 hover:bg-muted rounded-lg transition-colors"
+          >
+            <Github className="w-5 h-5 text-foreground" />
+          </a>
         </div>
       </nav>
 
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-[#093C5D] text-white">
-        <div className="max-w-7xl mx-auto px-6 py-28 md:py-36">
-
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-
-            {/* TEXT */}
-            <div className="max-w-xl space-y-6">
-              <span className="inline-block text-xs px-4 py-1.5 rounded-full bg-[#FFC81E]/20 text-[#FFC81E]">
-                Your digital products hub
-              </span>
-
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                Discover Premium{" "}
-                <span className="text-[#FFC81E]">Digital Products</span>
-              </h1>
-
-              <p className="text-white/70 text-lg">
-                Explore curated e-books, templates, and learning materials designed to help you grow faster.
-              </p>
-
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="container py-20 md:py-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-6">
+              <div className="space-y-4">
+                <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
+                  Discover Quality Digital Products
+                </h2>
+                <p className="text-lg text-foreground/70 leading-relaxed">
+                  Explore our curated collection of e-books, templates, and learning materials designed to inspire and educate.
+                </p>
+              </div>
               <div className="flex gap-4 pt-4">
                 <Link href="/products">
-                  <button className="px-8 py-3 rounded-lg bg-[#FFC81E] text-[#093C5D] font-semibold">
+                  <Button
+                    size="lg"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
+                  >
                     Browse Products
-                  </button>
+                  </Button>
                 </Link>
-
-                <button className="px-8 py-3 rounded-lg border border-white/40">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-lg border-primary text-primary hover:bg-primary/5"
+                >
                   Learn More
-                </button>
+                </Button>
               </div>
             </div>
 
-            {/* IMAGE */}
-            <div className="relative">
-              <div className="overflow-hidden rounded-2xl shadow-2xl">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663625524357/BxVk3XguSyUFwsNTtq5qot/hero-books-learning-PfwoDE3N8AjdR8axiuT4Y4.webp"
-                  className="w-full h-[420px] object-cover"
-                />
-              </div>
+            {/* Right Image */}
+            <div className="relative h-96 md:h-full">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663625524357/BxVk3XguSyUFwsNTtq5qot/hero-books-learning-PfwoDE3N8AjdR8axiuT4Y4.webp"
+                alt="Digital products showcase"
+                className="w-full h-full object-cover rounded-2xl shadow-lg"
+              />
+              {/* Decorative accent line */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl" />
             </div>
-
           </div>
         </div>
-
-        {/* GRADIENT DECOR (Stripe-style touch) */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFC81E]/10 blur-3xl rounded-full" />
       </section>
 
-      {/* STATS */}
-      <section className="bg-[#FFC81E]">
-        <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 text-center">
-          {[
-            ["10K+", "Users"],
-            ["500+", "Products"],
-            ["98%", "Satisfaction"],
-            ["24/7", "Support"],
-          ].map(([num, label], i) => (
-            <div key={i} className="space-y-1">
-              <div className="text-2xl font-bold">{num}</div>
-              <div className="text-sm opacity-70">{label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PRODUCTS */}
-      <section className="py-28 bg-[#f9fafb]">
-        <div className="max-w-7xl mx-auto px-6">
-
-          <div className="max-w-2xl mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Product Categories
+      {/* Product Categories */}
+      <section className="py-20 md:py-32 bg-gradient-to-b from-transparent to-muted/30">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Our Product Categories
             </h2>
-            <p className="text-[#093C5D]/60">
-              Everything you need to learn, create, and scale your ideas.
+            <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
+              Everything you need to learn, create, and grow
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {products.map((p, i) => {
-              const Icon = p.icon;
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {products.map((product) => {
+              const Icon = product.icon;
               return (
-                <div
-                  key={i}
-                  className="p-8 bg-white rounded-2xl border hover:shadow-xl transition"
+                <Card
+                  key={product.id}
+                  className="group p-8 hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/30 rounded-2xl overflow-hidden"
                 >
-                  <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#093C5D] mb-5">
-                    <Icon className="text-[#FFC81E]" />
+                  {/* Background gradient */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10`}
+                  />
+
+                  <div className="relative z-10">
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${product.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                      <Icon className={`w-7 h-7 ${product.accentColor}`} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-foreground mb-3">
+                      {product.title}
+                    </h3>
+                    <p className="text-foreground/70 mb-6 leading-relaxed">
+                      {product.description}
+                    </p>
+                    <Link href="/products">
+                      <Button
+                        variant="ghost"
+                        className="text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-semibold"
+                      >
+                        Explore →
+                      </Button>
+                    </Link>
                   </div>
-
-                  <h3 className="text-xl font-semibold mb-2">
-                    {p.title}
-                  </h3>
-
-                  <p className="text-[#093C5D]/70 mb-4">
-                    {p.description}
-                  </p>
-
-                  <Link href="/products">
-                    <span className="font-semibold hover:text-[#FFC81E]">
-                      Explore →
-                    </span>
-                  </Link>
-                </div>
+                </Card>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-28">
-        <div className="max-w-5xl mx-auto px-6 text-center bg-[#093C5D] text-white rounded-3xl py-16">
+      {/* GitHub Projects Section */}
+      <section className="py-20 md:py-32">
+        <div className="container">
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <Github className="w-8 h-8 text-primary" />
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+                GitHub Projects
+              </h2>
+            </div>
+            <p className="text-lg text-foreground/60 max-w-2xl">
+              Check out my open-source projects and contributions on GitHub
+            </p>
+          </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Ready to explore?
-          </h2>
+          {loading ? (
+            <div className="flex items-center justify-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
+            </div>
+          ) : repos.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {repos.map((repo) => (
+                <a
+                  key={repo.name}
+                  href={repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                >
+                  <Card className="h-full p-8 hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/50 rounded-2xl hover:bg-muted/30 cursor-pointer">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {repo.name}
+                      </h3>
+                      <Github className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
 
-          <p className="text-white/70 mb-8">
-            Start browsing and find exactly what you need.
-          </p>
+                    {repo.description && (
+                      <p className="text-foreground/70 mb-4 line-clamp-2">
+                        {repo.description}
+                      </p>
+                    )}
 
-          <Link href="/products">
-            <button className="px-8 py-3 bg-[#FFC81E] text-[#093C5D] rounded-lg font-semibold">
-              Start Browsing
-            </button>
-          </Link>
-
+                    <div className="flex items-center gap-4 text-sm text-foreground/60">
+                      {repo.language && (
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 rounded-full bg-primary" />
+                          {repo.language}
+                        </div>
+                      )}
+                      {repo.stars > 0 && (
+                        <div className="flex items-center gap-1">
+                          <span>⭐</span>
+                          {repo.stars}
+                        </div>
+                      )}
+                    </div>
+                  </Card>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <Card className="p-12 text-center border-border/50 rounded-2xl">
+              <p className="text-foreground/60">No public repositories found</p>
+            </Card>
+          )}
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t">
-        <div className="max-w-7xl mx-auto px-6 py-10 text-sm text-[#093C5D]/60 text-center">
-          © 2026 WB Connect. All rights reserved.
+      {/* CTA Section */}
+      <section className="py-20 md:py-32 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl mx-4 md:mx-0">
+        <div className="container">
+          <div className="text-center space-y-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              Ready to Explore?
+            </h2>
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              Browse our complete collection of digital products and find exactly what you need.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <Link href="/products">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
+                >
+                  Start Browsing
+                </Button>
+              </Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-lg border-primary text-primary hover:bg-primary/5"
+              >
+                Contact Us
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border mt-20 py-12">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <h4 className="font-bold text-foreground mb-4">WB Connect</h4>
+              <p className="text-foreground/60 text-sm">
+                Your destination for quality digital products and learning materials.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-bold text-foreground mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-sm text-foreground/60">
+                <li>
+                  <Link href="/products">
+                    <span className="hover:text-primary transition-colors cursor-pointer">
+                      Products
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <a className="hover:text-primary transition-colors cursor-pointer">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a className="hover:text-primary transition-colors cursor-pointer">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-foreground mb-4">Connect</h4>
+              <ul className="space-y-2 text-sm text-foreground/60">
+                <li>
+                  <a
+                    href="https://github.com/jeeesssa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-border pt-8 text-center text-foreground/60 text-sm">
+            <p>&copy; 2026 WB Connect. All rights reserved.</p>
+          </div>
         </div>
       </footer>
-
     </div>
   );
 }
