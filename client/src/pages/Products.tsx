@@ -232,7 +232,7 @@ export default function Products() {
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {filteredProducts.map((product) => (
-                      <Link key={product.id} href={`/product/${product.id}`}>
+                      <Link key={product.id} href={`/product/₱{product.id}`}>
                         <a>
                           <Card className="h-full overflow-hidden hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/30 rounded-2xl group cursor-pointer">
                             {/* Product Image */}
@@ -243,7 +243,7 @@ export default function Products() {
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                               />
                               <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                                ${product.price}
+                                ₱{product.price}
                               </div>
                             </div>
 
@@ -271,7 +271,7 @@ export default function Products() {
                                   {[...Array(5)].map((_, i) => (
                                     <Star
                                       key={i}
-                                      className={`w-4 h-4 ${
+                                      className={`w-4 h-4 ₱{
                                         i < Math.floor(product.rating)
                                           ? "fill-amber-400 text-amber-400"
                                           : "text-foreground/20"
